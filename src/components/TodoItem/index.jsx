@@ -1,5 +1,5 @@
-function TodoItem() {
-    return <div>Finish project for Plus.</div>;
+function TodoItem(props) {
+    return <div>{props.text}</div>;
 }
 
 export default TodoItem;
