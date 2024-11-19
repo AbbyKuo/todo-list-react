@@ -1,5 +1,6 @@
 import { useState } from 'react';
 function TodoForm(props) {
+    console.log(props)
     const [value, setValue] = useState("")
 
     const handleSubmit = (event) => {

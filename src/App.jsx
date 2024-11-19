@@ -5,15 +5,29 @@ import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([
-    "Learn about React",
-    "Meet a friend for lunch",
-    "Build a really cool todo app",
-  ]);
+          {
+              text: "Learn about React",
+              isCompleted: false,
+          },{
+              text: "Meet friend for lunch",
+              isCompleted: false,
+          },{
+              text: "Build really cool todo app",
+              isCompleted: false,
+          }
+      ]);
+    
 
   const addTodo = (text) => {
-    const newTodos = [...todos, text];
+    const newTodos = [...todos, { text }];
     setTodos(newTodos);
     };
+
+  const completeTodo = (index) => {
+          const newTodos = [...todos];
+          newTodos[index].isCompleted = true;
+          setTodos(newTodos);
+      };
 
   return (
       <div className='app'>
@@ -22,7 +36,8 @@ function App() {
           <TodoItem text="Feed Brownie yummy bons." />
           <TodoItem text="Be awesome and grateful." />
           {todos.map((todo, index) => (
-              <TodoItem text={todo} key={index} />
+              <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} />
+
         ))}
         <TodoForm addTodo={addTodo} />
     </div >
