@@ -32,9 +32,9 @@ function App() {
   return (
       <div className='app'>
           <h1 className='todo-list'>My todo list</h1>
-          <TodoItem text="Finish plus project." />
+          {/* <TodoItem text="Finish plus project." />
           <TodoItem text="Feed Brownie yummy bons." />
-          <TodoItem text="Be awesome and grateful." />
+          <TodoItem text="Be awesome and grateful." /> */}
           {todos.map((todo, index) => (
               <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} />
 
