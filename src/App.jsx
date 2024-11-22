@@ -8,17 +8,20 @@ function App() {
             {
                 text: "Learn about React",
                 isCompleted: false,
+                isDeleted: false,
             },{
                 text: "Meet friend for lunch",
                 isCompleted: false,
+                isDeleted: false,
             },{
                 text: "Build really cool todo app",
                 isCompleted: false,
+                isDeleted: false,
             }
         ]);
         
     const addTodo = (text) => {
-        
+
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
     };
@@ -29,6 +32,12 @@ function App() {
             setTodos(newTodos);
         };
 
+    const removeTodo = (index) => {
+        const newTodos = [...todos];
+        newTodos.splice(index, 1).isDeleted = true;
+        setTodos(newTodos);
+    };
+
     return (
         <div className='app'>
             <h1 className='todo-list'>My todo list</h1>
@@ -36,7 +45,7 @@ function App() {
             <TodoItem text="Feed Brownie yummy bons." />
             <TodoItem text="Be awesome and grateful." /> */}
             {todos.map((todo, index) => (
-                <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} />
+                <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} removeTodo={removeTodo}/>
 
             ))}
             <TodoForm addTodo={addTodo} />
